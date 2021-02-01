@@ -28,9 +28,6 @@ class MessageList extends React.PureComponent {
         ...messages.slice(),
         message,
       ],
-    }, () => {
-      // Included to support initial direction. Please remove upon completion
-      console.log(messages);
     });
   }
 
@@ -51,15 +48,15 @@ class MessageList extends React.PureComponent {
 
   clearMessage = (messageId) => {
     const messages = this.state.messages.filter((message) => message.id !== messageId);
-    return this.setState({ messages });
+    this.setState({ messages });
   }
 
   render() {
     const { messages } = this.state;
     const isApiStarted = this.api.isStarted();
-    const errorMessages = messages.filter((message) => message.priority === 1);
-    const warningMessages = messages.filter((message) => message.priority === 2);
-    const infoMessages = messages.filter((message) => message.priority === 3);
+    const errorMessages = messages.filter((message) => message.priority === 1).reverse();
+    const warningMessages = messages.filter((message) => message.priority === 2).reverse();
+    const infoMessages = messages.filter((message) => message.priority === 3).reverse();
     return (
       <div>
         <ButtonWrapper>
