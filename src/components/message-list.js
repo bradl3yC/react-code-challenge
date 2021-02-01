@@ -63,9 +63,9 @@ class MessageList extends React.PureComponent {
           <Button
             onClick={this.handleClick}
           >
-            {isApiStarted ? 'Stop' : 'Start'}
+            {isApiStarted ? 'STOP' : 'START'}
           </Button>
-          <Button onClick={this.clearClicked}>Clear</Button>
+          <Button onClick={this.clearClicked}>CLEAR</Button>
         </ButtonWrapper>
         <MessagesWrapper>
           <MessageColumn color="#F56236" messages={errorMessages} heading="Error Type 1" clearMessage={this.clearMessage} />
